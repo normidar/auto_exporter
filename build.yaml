@@ -8,14 +8,15 @@ targets:
 
 builders:
   flutter_auto_export_first:
-    import: "package:flutter_auto_export/flutter_auto_export.dart"
+    import: "package:auto_exporter/auto_exporter.dart"
     builder_factories: ["exporterGeneratorBuilder"]
     build_extensions: { ".dart": [".exports"] }
     auto_apply: dependents
     build_to: cache
     applies_builders: ["source_gen|combining_builder"]
+    runs_before: ["auto_exporter:flutter_auto_export_second"]
   flutter_auto_export_second:
-    import: "package:flutter_auto_export/flutter_auto_export.dart"
+    import: "package:auto_exporter/auto_exporter.dart"
     builder_factories: ["exportsBuilder"]
     build_extensions: { "$lib$": [".exports.dart"] }
     auto_apply: dependents
