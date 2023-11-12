@@ -1,7 +1,9 @@
 import 'dart:async';
 
+import 'package:auto_exporter/auto_exporter.dart';
 import 'package:auto_exporter/src/exports_builder.dart';
 import 'package:build/build.dart';
+import 'package:source_gen/source_gen.dart';
 
 /// visit all files to remember they path
 class ExporterGeneratorBuilder implements Builder {
@@ -17,10 +19,19 @@ class ExporterGeneratorBuilder implements Builder {
     if (!await resolver.isLibrary(buildStep.inputId)) return;
     final element = await buildStep.inputLibrary;
     final lib = [element, ...element.topLevelElements];
-    // final exportAnnotation = TypeChecker.fromRuntime(AutoExporter);
-    final annotated = [
-      for (var member in lib) {member.name},
-    ];
+
+    final List<Set<String?>> annotated = [];
+
+    for (var member in lib) {
+      if (member.name == null) continue;
+      final annotationChecker = LibraryReader(await buildStep.inputLibrary);
+      for (var _ in annotationChecker
+          .annotatedWith(TypeChecker.fromRuntime(IgnoreExport))) {
+        return;
+      }
+      annotated.add({member.name});
+    }
+
     if (annotated.isNotEmpty) {
       ExportsBuilder.packageName = buildStep.inputId.package;
       await buildStep.writeAsString(
