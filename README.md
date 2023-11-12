@@ -29,18 +29,18 @@ wait a minute... and you get the export file.
 
 remove your export file and change the `export.dart` to your name.
 
-#### on the last
+## on the last
 
 rename you export.dart to your project name
 
 remember to run this:`dart format .`!
 
-#### hint
+## hint
 
 `dart pub publish --dry-run` to up your package to pub.dev
 
 
-### auto shell
+## auto shell
 
 you can use this shell to auto export your files(required: you must only has one file in your lib folder):
 
@@ -61,7 +61,7 @@ flutter packages pub run build_runner build
 mv "$folder_path""export.dart" "$folder_path""$file_name"
 ```
 
-### ignore exports
+## ignore exports
 
 If you want to ignore certain files without exporting them, you can use the annotation `IgnoreExport` for your class.
 
