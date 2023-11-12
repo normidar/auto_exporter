@@ -60,3 +60,12 @@ flutter packages pub run build_runner build
 
 mv "$folder_path""export.dart" "$folder_path""$file_name"
 ```
+
+### ignore exports
+
+If you want to ignore certain files without exporting them, you can use the annotation `IgnoreExport` for your class.
+
+you can see the example to know how to use this annotation.
+
+> feature advised by @hasimyerlikaya.
+
