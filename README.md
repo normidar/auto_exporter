@@ -12,8 +12,11 @@ A Dart package that allows you to auto export types globally.
 
 first: add those to `pubspec.yaml` 
 ```
+dependencies:
+  auto_exporter_annotation: ^1.0.0
+
 dev_dependencies:
-  auto_exporter: ^...
+  auto_exporter: ^2.0.0
   build_runner: ^2.4.6
   build_test: ^2.2.0
 ```
@@ -33,11 +36,11 @@ remove your export file and change the `export.dart` to your name.
 
 rename you export.dart to your project name
 
-remember to run this:`dart format .`!
+You can run this to format your code: `dart format .`
 
 ## hint
 
-`dart pub publish --dry-run` to up your package to pub.dev
+`dart pub publish --dry-run` to check your package prepare for `pub.dev`.
 
 
 ## auto shell

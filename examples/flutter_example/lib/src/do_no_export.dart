@@ -1,4 +1,4 @@
-import 'package:auto_exporter/auto_exporter.dart';
+import 'package:auto_exporter_annotation/auto_exporter_annotation.dart';
 
 @IgnoreExport()
 class DoNoExport {}

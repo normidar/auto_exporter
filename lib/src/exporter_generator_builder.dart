@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:auto_exporter/auto_exporter.dart';
 import 'package:auto_exporter/src/exports_builder.dart';
+import 'package:auto_exporter_annotation/auto_exporter_annotation.dart';
 import 'package:build/build.dart';
 import 'package:source_gen/source_gen.dart';
 

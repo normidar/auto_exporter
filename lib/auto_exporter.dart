@@ -4,7 +4,6 @@ import 'package:build/build.dart';
 
 import 'src/exporter_generator_builder.dart';
 import 'src/exports_builder.dart';
-export 'src/ignore_export.dart';
 
 /// return the ExporterGeneratorBuilder
 Builder exporterGeneratorBuilder(BuilderOptions options) {

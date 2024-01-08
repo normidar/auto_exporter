@@ -1,3 +1,8 @@
+## [2.0.0] - 2024-1-8
+
+* move all annotations to `auto_exporter_annotation` library.
+* update all dependencies
+
 ## [1.5.0] - 2023-11-12
 
 * Added `IgnoreExport` annotation to ignore export files
