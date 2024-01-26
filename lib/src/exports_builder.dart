@@ -14,8 +14,6 @@ class ExportsBuilder implements Builder {
   static var packageName = "export";
   @override
   Future<void> build(BuildStep buildStep) async {
-    print("running build");
-
     final exports = buildStep.findAssets(Glob('**/*.exports'));
 
     final expList = <String>[];
@@ -27,7 +25,6 @@ class ExportsBuilder implements Builder {
       "// if you want to update your packages on power: dart pub upgrade --major-versions",
     ];
     await for (var exportLibrary in exports) {
-      print("exportLibrary: $exportLibrary");
       final exportUri = exportLibrary.changeExtension('.dart').uri;
       if (exportUri.toString().substring(0, 5) != "asset") {
         if (exportUri.toString() != 'package:$packageName/$packageName.dart') {
@@ -42,7 +39,6 @@ class ExportsBuilder implements Builder {
       }
     }
     expList.add('');
-    print("export list:$expList");
 
     content.addAll(expList);
     if (content.isNotEmpty) {

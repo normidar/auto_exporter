@@ -14,7 +14,6 @@ class ExporterGeneratorBuilder implements Builder {
 
   @override
   Future<void> build(BuildStep buildStep) async {
-    print("generator running");
     final resolver = buildStep.resolver;
     if (!await resolver.isLibrary(buildStep.inputId)) return;
     final element = await buildStep.inputLibrary;
