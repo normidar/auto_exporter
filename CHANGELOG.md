@@ -1,3 +1,7 @@
+## [2.0.1] - 2024-1-26
+
+* removed all print on code
+
 ## [2.0.0] - 2024-1-8
 
 * move all annotations to `auto_exporter_annotation` library.
