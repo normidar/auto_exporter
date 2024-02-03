@@ -35,15 +35,17 @@ class ExportsBuilder implements Builder {
       final con = await buildStep.readAsString(exportLibrary);
       final exportUri = exportLibrary.uri.path;
       if (exportUri.toString() != 'package:$packageName/$packageName.dart') {
-        final expStr = "export '$exportUri';";
+        final expStr = "export 'package:$exportUri';";
         if (con.contains('@IgnoreExport()')) {
           continue;
         }
-        if (isDefaultExportAll) {
-          expList.add(expStr);
-        } else {
-          if (con.contains('@AutoExport()')) {
+        if (!con.contains('part of ')) {
+          if (isDefaultExportAll) {
             expList.add(expStr);
+          } else {
+            if (con.contains('@AutoExport()')) {
+              expList.add(expStr);
+            }
           }
         }
       }

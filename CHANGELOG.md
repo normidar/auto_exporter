@@ -1,4 +1,12 @@
-## [3.0.0] - 2024-1-26
+## [3.0.2] - 2024-2-4
+
+* Fixed bug for part of
+
+## [3.0.1] - 2024-2-4
+
+* Fixed bug
+
+## [3.0.0] - 2024-2-4
 
 * Big change: you can export as you package name
 * Big change: you can just export a little bit of files
