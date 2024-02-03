@@ -59,3 +59,5 @@ you can see the example to know how to use this annotation.
 ## only export some files
 
 change the `default_export_all` option to false, and add @AutoExport() annotation to your files that you want to export.
+
+> feature advised by @sm-riyadh
