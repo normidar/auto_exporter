@@ -2,18 +2,19 @@
 
 # Auto Exporter
 
-This project fork from https://github.com/AlbertoMonteiro/FlutterAutoExport Thanks the author.
+This project fork from https://github.com/AlbertoMonteiro/FlutterAutoExport Thanks to the author.(But after fork from that, it has been a lot different)
 
-If you request a issue please @normidar
+If you request an issue please @normidar
 
 A Dart package that allows you to auto export types globally.
 
-## How to use it ?
+## How to use it?
 
-first: add those to `pubspec.yaml` 
+Firstly: add those to `pubspec.yaml` 
+
 ```
 dependencies:
-  auto_exporter_annotation: ^1.0.0
+  auto_exporter_annotation: ^1.0.1
 
 dev_dependencies:
   auto_exporter: ^2.0.0
@@ -21,7 +22,19 @@ dev_dependencies:
   build_test: ^2.2.0
 ```
 
-second run:
+Secondly: add those to `build.yaml`:
+```
+targets:
+  $default:
+    builders:
+      auto_exporter:
+        options:
+          default_export_all: true # default export all files, if false only export @AutoExport() files, default is true.
+          project_name: your_project_name
+```
+
+Thirdly: run code:
+
 ```
  dart run build_runner build  # Dart SDK
  flutter pub run build_runner build  # Flutter SDK
@@ -30,39 +43,10 @@ second run:
 
 wait a minute... and you get the export file.
 
-remove your export file and change the `export.dart` to your name.
-
-## on the last
-
-rename you export.dart to your project name
-
-You can run this to format your code: `dart format .`
-
 ## hint
 
 `dart pub publish --dry-run` to check your package prepare for `pub.dev`.
 
-
-## auto shell
-
-you can use this shell to auto export your files(required: you must only has one file in your lib folder):
-
-``` shell
-#!/bin/bash
-
-set -eux
-
-folder_path="lib/"
-
-file_name=$(find "$folder_path" -maxdepth 1 -type f)
-file_name=$(basename "$file_name")
-
-rm -rf "$folder_path""$file_name"
-
-flutter packages pub run build_runner build
-
-mv "$folder_path""export.dart" "$folder_path""$file_name"
-```
 
 ## ignore exports
 
@@ -72,3 +56,6 @@ you can see the example to know how to use this annotation.
 
 > feature advised by @hasimyerlikaya.
 
+## only export some files
+
+change the `default_export_all` option to false, and add @AutoExport() annotation to your files that you want to export.

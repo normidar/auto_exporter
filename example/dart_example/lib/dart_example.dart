@@ -3,4 +3,4 @@
 // remenber to format this file, you can use: dart format
 // publish your package hint: dart pub publish --dry-run
 // if you want to update your packages on power: dart pub upgrade --major-versions
-export 'package:dart_example/src/dart_example_base.dart';
+export 'dart_example/src/always_export.dart';

@@ -1,3 +1,8 @@
+## [3.0.0] - 2024-1-26
+
+* Big change: you can export as you package name
+* Big change: you can just export a little bit of files
+
 ## [2.0.1] - 2024-1-26
 
 * removed all print on code

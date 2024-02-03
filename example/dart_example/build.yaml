@@ -1,0 +1,7 @@
+targets:
+  $default:
+    builders:
+      auto_exporter:
+        options:
+          default_export_all: false
+          project_name: dart_example

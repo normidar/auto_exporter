@@ -4,17 +4,24 @@ import 'package:glob/glob.dart';
 /// the ExportsBuilder will create the file to
 /// export all dart files
 class ExportsBuilder implements Builder {
+  BuilderOptions options;
+
+  ExportsBuilder({required this.options});
+
   @override
   Map<String, List<String>> get buildExtensions {
     return {
-      r'$lib$': ['.dart']
+      r'$lib$': ['$packageName.dart']
     };
   }
 
-  static var packageName = "export";
+  bool get isDefaultExportAll => options.config['default_export_all'] ?? true;
+
+  String get packageName => options.config['project_name'] ?? 'exports';
+
   @override
   Future<void> build(BuildStep buildStep) async {
-    final exports = buildStep.findAssets(Glob('**/*.exports'));
+    final exports = buildStep.findAssets(Glob('lib/**/*.dart'));
 
     final expList = <String>[];
     final content = [
@@ -25,16 +32,19 @@ class ExportsBuilder implements Builder {
       "// if you want to update your packages on power: dart pub upgrade --major-versions",
     ];
     await for (var exportLibrary in exports) {
-      final exportUri = exportLibrary.changeExtension('.dart').uri;
-      if (exportUri.toString().substring(0, 5) != "asset") {
-        if (exportUri.toString() != 'package:$packageName/$packageName.dart') {
-          final expStr = "export '$exportUri';";
+      final con = await buildStep.readAsString(exportLibrary);
+      final exportUri = exportLibrary.uri.path;
+      if (exportUri.toString() != 'package:$packageName/$packageName.dart') {
+        final expStr = "export '$exportUri';";
+        if (con.contains('@IgnoreExport()')) {
+          continue;
+        }
+        if (isDefaultExportAll) {
           expList.add(expStr);
-
-          // if (content[2] == "") {
-          //   packageName = expStr.split("/")[0].split(":")[1];
-          //   content[2] = "// " + packageName;
-          // }
+        } else {
+          if (con.contains('@AutoExport()')) {
+            expList.add(expStr);
+          }
         }
       }
     }
@@ -43,9 +53,8 @@ class ExportsBuilder implements Builder {
     content.addAll(expList);
     if (content.isNotEmpty) {
       await buildStep.writeAsString(
-          AssetId(buildStep.inputId.package,
-              'lib/${buildStep.inputId.package}.dart'),
-          content.join('\n\n'));
+          AssetId(buildStep.inputId.package, 'lib/$packageName.dart'),
+          content.join('\n'));
     }
   }
 }

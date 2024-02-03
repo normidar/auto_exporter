@@ -37,12 +37,12 @@ packages:
     dependency: "direct main"
     description:
       name: auto_exporter_annotation
-      sha256: c948ecf21a373ccb90c6041644df8e950110657dec1e43574ecfdb8a5f9d8464
+      sha256: "4b5ec6740fcdce418cf569160fe63d5f4217e7129f4a02f002caf59fe1db0170"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.0"
+    version: "1.0.1"
   build:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: build
       sha256: "80184af8b6cb3e5c1c4ec6d8544d27711700bc3e6d2efad04238c7b5290889f0"
@@ -97,14 +97,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.0"
-  freedom_build:
-    dependency: "direct main"
-    description:
-      name: freedom_build
-      sha256: cd6f2032c1ada7af55eca26a667501e45cd943132170a65da7da5476b10257b1
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.4.2-wip"
   glob:
     dependency: "direct main"
     description:
