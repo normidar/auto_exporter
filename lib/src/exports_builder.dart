@@ -7,7 +7,7 @@ class ExportsBuilder implements Builder {
   @override
   Map<String, List<String>> get buildExtensions {
     return {
-      r'$lib$': ['export.dart']
+      r'$lib$': ['.dart']
     };
   }
 
@@ -43,8 +43,9 @@ class ExportsBuilder implements Builder {
     content.addAll(expList);
     if (content.isNotEmpty) {
       await buildStep.writeAsString(
-          AssetId(buildStep.inputId.package, 'lib/export.dart'),
-          content.join('\n'));
+          AssetId(buildStep.inputId.package,
+              'lib/${buildStep.inputId.package}.dart'),
+          content.join('\n\n'));
     }
   }
 }
