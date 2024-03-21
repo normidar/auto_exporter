@@ -2,11 +2,11 @@
 
 # Auto Exporter
 
-This project fork from https://github.com/AlbertoMonteiro/FlutterAutoExport Thanks to the author.(But after fork from that, it has been a lot different)
+This project fork from https://github.com/AlbertoMonteiro/FlutterAutoExport Thanks to the author. (But after fork from that, it has been a lot different)
 
 If you request an issue please @normidar
 
-A Dart package that allows you to auto export types globally.
+A Dart package that allows you to auto-export types globally.
 
 ## How to use it?
 
@@ -17,7 +17,7 @@ dependencies:
   auto_exporter_annotation: ^1.0.1
 
 dev_dependencies:
-  auto_exporter: ^2.0.0
+  auto_exporter: ^3.0.0
   build_runner: ^2.4.6
   build_test: ^2.2.0
 ```
@@ -58,6 +58,6 @@ you can see the example to know how to use this annotation.
 
 ## only export some files
 
-change the `default_export_all` option to false, and add @AutoExport() annotation to your files that you want to export.
+change the `default_export_all` option to false, and add @AutoExport() annotation to the files that you want to export.
 
 > feature advised by @sm-riyadh

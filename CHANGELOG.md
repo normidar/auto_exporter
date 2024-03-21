@@ -1,3 +1,7 @@
+## [3.1.0] - 2024-3-21
+
+* use ast to check code is `part of` or not
+
 ## [3.0.2] - 2024-2-4
 
 * Fixed bug for part of
