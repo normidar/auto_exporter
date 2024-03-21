@@ -1,3 +1,5 @@
+import 'package:analyzer/dart/analysis/utilities.dart';
+import 'package:analyzer/dart/ast/ast.dart';
 import 'package:build/build.dart';
 import 'package:glob/glob.dart';
 
@@ -33,13 +35,16 @@ class ExportsBuilder implements Builder {
     ];
     await for (var exportLibrary in exports) {
       final con = await buildStep.readAsString(exportLibrary);
+      // to check has `part of`
+      var ast = parseString(content: con).unit.childEntities;
+
       final exportUri = exportLibrary.uri.path;
       if (exportUri.toString() != 'package:$packageName/$packageName.dart') {
         final expStr = "export 'package:$exportUri';";
         if (con.contains('@IgnoreExport()')) {
           continue;
         }
-        if (!con.contains('part of ')) {
+        if (ast.whereType<PartOfDirective>().isEmpty) {
           if (isDefaultExportAll) {
             expList.add(expStr);
           } else {

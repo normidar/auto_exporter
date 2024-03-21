@@ -3,5 +3,5 @@ targets:
     builders:
       auto_exporter:
         options:
-          default_export_all: false
+          default_export_all: true # default is true, if false, auto_exporter will not export any files by default and you will need to use the @AutoExport() annotation to export files.
           project_name: dart_example
