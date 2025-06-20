@@ -1,11 +1,11 @@
 version: 2
 updates:
   - package-ecosystem: "github-actions"
-    directory: "/auto_exporter"
+    directory: "packages/auto_exporter"
     schedule:
       interval: "weekly"
 
   - package-ecosystem: "pub"
-    directory: "/auto_exporter"
+    directory: "packages/auto_exporter"
     schedule:
       interval: "monthly"
