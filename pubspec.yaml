@@ -1,0 +1,6 @@
+---
+dev_dependencies:
+  melos: ^6.3.3
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+name: auto_exporter_monorepo
