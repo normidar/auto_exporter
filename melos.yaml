@@ -1,0 +1,5 @@
+name: auto_exporter_monorepo
+
+packages:
+  - packages/*
+  - example/*
