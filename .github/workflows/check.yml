@@ -14,6 +14,12 @@ jobs:
       - uses: kuhnroyal/flutter-fvm-config-action/config@v3
         id: fvm-config-action
 
+      - name: Cache fvm
+        uses: actions/cache@v3
+        with:
+          path: /opt/hostedtoolcache/flutter
+          key: ${{ runner.OS }}-${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
+
       - name: Install fvm
         uses: subosito/flutter-action@v2
         with:
