@@ -14,6 +14,15 @@ jobs:
       - uses: kuhnroyal/flutter-fvm-config-action/config@v3
         id: fvm-config-action
 
+      - name: Install fvm
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
+
+      - name: Dart version
+        run: |
+          dart --version
+
       - name: Safe directory
         run: |
           git config --global --add safe.directory $GITHUB_WORKSPACE
