@@ -1,7 +1,0 @@
-{
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true
-  },
-  "java.configuration.updateBuildConfiguration": "disabled",
-  "editor.formatOnSaveMode": "file"
-}
