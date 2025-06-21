@@ -17,7 +17,6 @@ homepage: https://github.com/normidar/auto_exporter
 name: auto_exporter
 topics:
   - package-management
-  - dart
   - package
   - export
   - exporter
