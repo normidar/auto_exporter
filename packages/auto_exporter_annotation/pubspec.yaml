@@ -9,7 +9,7 @@ homepage: https://github.com/normidar/auto_exporter
 name: auto_exporter_annotation
 topics:
   - package-management
-  - package
+  - library
   - export
   - exporter
   - code-generation
