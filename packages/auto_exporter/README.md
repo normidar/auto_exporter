@@ -25,7 +25,7 @@ dependencies:
 dev_dependencies:
   auto_exporter: <the latest version>
   build_runner: ^2.4.6
-  build_test: ^2.2.0
+  build_test: ^3.0.0
 ```
 
 Then, add the following code to `build.yaml` (if you don't have `build.yaml`, create it at the root of your project):

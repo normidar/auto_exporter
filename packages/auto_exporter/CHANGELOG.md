@@ -1,3 +1,7 @@
+## [4.0.0] - 2025-07-18
+
+- Update build to `build: ^3.0.0`
+
 ## [3.5.1] - 2025-06-21
 
 - Project Refactoring.
