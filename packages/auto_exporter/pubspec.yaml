@@ -1,6 +1,6 @@
 ---
 dependencies:
-  analyzer: ^7.0.0
+  analyzer: ">=7.0.0 <9.0.0"
   auto_exporter_annotation: ^1.0.1
   build: ^3.0.0
   build_resolvers: ^3.0.0
