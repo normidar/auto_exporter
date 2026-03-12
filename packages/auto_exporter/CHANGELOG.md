@@ -1,3 +1,9 @@
+## [4.1.0] - 2026-03-12
+
+- Update analyzer to `>=8.0.0 <12.0.0`
+- Update build to `^4.0.0`
+- Update source_gen to `^4.0.0`
+
 ## [4.0.0] - 2025-07-18
 
 - Update build to `build: ^3.0.0`
