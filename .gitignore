@@ -7,5 +7,6 @@
 
 pubspec_overrides.yaml
 .DS_Store
-melos_auto_exporter_monorepo.iml
+melos_*.iml
 .vscode/
+pubspec.lock

@@ -12,7 +12,7 @@ description: A Dart package that allows you to auto export files, see README.md 
 dev_dependencies:
   lints: '>=2.1.1 <7.0.0'
 environment:
-  sdk: '>=2.12.0 <4.0.0'
+  sdk: ^3.5.0
 homepage: https://github.com/normidar/auto_exporter
 name: auto_exporter
 topics:

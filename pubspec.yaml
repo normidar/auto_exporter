@@ -2,8 +2,12 @@
 dev_dependencies:
   melos: ^7.8.2
 environment:
-  sdk: ^3.5.0
+  sdk: ^3.11.0
 name: auto_exporter_monorepo
+
+workspace:
+  - packages/*
+  - packages/*/example
 
 melos:
   packages:
