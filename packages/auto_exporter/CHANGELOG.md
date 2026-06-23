@@ -1,3 +1,7 @@
+## 4.1.1
+
+ - **FIX**: use latest melos.
+
 ## [4.1.0] - 2026-03-12
 
 - Update analyzer to `>=8.0.0 <12.0.0`

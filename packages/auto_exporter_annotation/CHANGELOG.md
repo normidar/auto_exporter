@@ -1,3 +1,7 @@
+## 1.0.4
+
+ - **FIX**: use latest melos.
+
 ## 1.0.3
 
 - Project Refactoring.
