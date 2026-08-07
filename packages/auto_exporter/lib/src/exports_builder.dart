@@ -87,16 +87,19 @@ class ExportsBuilder implements Builder {
     final normalList = <String>[];
 
     // class
-    ast.whereType<NamedCompilationUnitMember>().forEach((e) {
+    ast.whereType<CompilationUnitMember>().forEach((e) {
+      final name = _nameOf(e);
+      if (name == null) return;
+
       final meta = e.metadata.map((e) => e.toString());
       if (meta.contains('@IgnoreExport()')) {
         ignoreCount++;
-        ignoreList.add(e.name.toString());
+        ignoreList.add(name);
       } else if (meta.contains('@AutoExport()')) {
         exportCount++;
-        exportList.add(e.name.toString());
+        exportList.add(name);
       } else {
-        normalList.add(e.name.toString());
+        normalList.add(name);
       }
     });
 
@@ -137,4 +140,17 @@ class ExportsBuilder implements Builder {
       return "export 'package:$exportUri' show $toExpLst;";
     }
   }
+
+  /// Extracts the declared name from a [CompilationUnitMember], or `null`
+  /// for members that don't declare a name (e.g. unnamed extensions).
+  String? _nameOf(CompilationUnitMember member) => switch (member) {
+        ClassDeclaration(:final namePart) => namePart.typeName.toString(),
+        EnumDeclaration(:final namePart) => namePart.typeName.toString(),
+        ExtensionTypeDeclaration(:final namePart) =>
+          namePart.typeName.toString(),
+        FunctionDeclaration(:final name) => name.toString(),
+        MixinDeclaration(:final name) => name.toString(),
+        TypeAlias(:final name) => name.toString(),
+        _ => null,
+      };
 }

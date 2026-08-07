@@ -1,3 +1,8 @@
+## 4.2.0
+
+ - **FIX**: compatibility with analyzer 11+ (`NamedCompilationUnitMember` removed) and analyzer 13+ (`ClassDeclaration`/`EnumDeclaration`/`ExtensionTypeDeclaration` now expose `namePart` instead of `name`).
+ - Update analyzer to `>=13.0.0 <15.0.0`.
+
 ## 4.1.1
 
  - **FIX**: use latest melos.
